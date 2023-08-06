@@ -1,0 +1,11 @@
+{
+    "name": "terry/admin",
+    "require": {
+<<<<<<< HEAD
+        "phpmailer/phpmailer": "^6.5",
+        "dompdf/dompdf": "^2.0"
+=======
+        "phpmailer/phpmailer": "^6.5"
+>>>>>>> amir_dev1
+    }
+}
