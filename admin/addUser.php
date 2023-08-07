@@ -90,10 +90,12 @@
                         <?php 
 
                         $res = mysqli_query($conn, "SELECT * FROM user ORDER BY id DESC LIMIT 5");
+                        $nbr = 0;
                         while ($row = mysqli_fetch_assoc($res)) {
+                          $nbr++;
                           ?>
                           <tr>
-                            <td><?= $row['id'] ?></td>
+                            <td><?= $nbr ?></td>
                             <td><?= $row['nomP'] ?></td>
                             <td><?= $row['email'] ?></td>
                             <td><?php 
@@ -153,7 +155,7 @@
 if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['submit'])) {
   $nomP = $_POST['nomP'];
   $mail = $_POST['mail'];
-  $pwd = $_POST['pwd'];
+  $pwd = password_hash($_POST['pwd'], PASSWORD_DEFAULT);
   include(realpath($_SERVER["DOCUMENT_ROOT"]) . '/CINEFWEB/config/conn.php');
 
   // Vérifier la connexion

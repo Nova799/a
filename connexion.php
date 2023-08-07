@@ -1,12 +1,11 @@
-<?php 
+<?php
 session_start();
 include(realpath($_SERVER["DOCUMENT_ROOT"]) . '/CINEFWEB/config/conn.php');
 $sql = "SELECT * FROM user WHERE id > 1 AND role = 'admin'";
 $res = mysqli_query($conn, $sql);
-if (mysqli_num_rows($res) > 0) {
-  header("Location: ../connexion.php");
-} else {
-  mysqli_query($conn, "INSERT INTO user (nomP, email, password, role) VALUES ('Administrateur 1', 'admin@gmail.com', 'p@s5w0rd', 'admin')");
+if (!mysqli_num_rows($res) || mysqli_num_rows($res) == 0) {
+  $pwd = password_hash('p@5sw0rD', PASSWORD_DEFAULT);
+  mysqli_query($conn, "INSERT INTO user (nomP, email, password, role) VALUES ('Administrateur 1', 'admin@gmail.com','$pwd', 'admin')");
 }
 ?>
 
@@ -53,7 +52,8 @@ if (mysqli_num_rows($res) > 0) {
                     </div>
 
                     <h5 class="fw-normal mb-3 pb-3" style="letter-spacing: 1px;">Connectez-vous à votre compte</h5>
-                    <small class="fw-bolder text-uppercase text-danger d-none">Les identifiants sont incorrects</small><br><br>
+                    <small class="fw-bolder text-uppercase text-danger d-none">Les identifiants sont
+                      incorrects</small><br><br>
 
                     <div class="form-outline mb-4 input">
                       <input type="email" id="form2Example17" autocomplete="off" class="form-control form-control-lg"
@@ -130,12 +130,12 @@ if (mysqli_num_rows($res) > 0) {
 if (isset($_POST['sub']) && isset($_POST['pass']) && isset($_POST['mail'])) {
   include(realpath($_SERVER["DOCUMENT_ROOT"]) . '/CINEFWEB/config/conn.php');
   // $conn = conn();
-
-  $sql = "SELECT * FROM user WHERE email = '" . $_POST['mail'] . "' AND password='" . $_POST['pass'] . "'";
+  $pwd = password_hash($_POST['pass'], PASSWORD_DEFAULT);
+  $sql = "SELECT * FROM user WHERE email = '" . $_POST['mail'] . "'";
   $result = mysqli_query($conn, $sql);
-
-  if (mysqli_num_rows($result) > 0) {
-    $_SESSION['user'] = mysqli_fetch_assoc($result);
+  $row = mysqli_fetch_assoc($result);
+  if (mysqli_num_rows($result) > 0 && password_verify($_POST['pass'], $row["password"])) {
+    $_SESSION['user'] = $row;
     header("Location: ./admin/index.php");
     ?>
     <script>
@@ -145,9 +145,9 @@ if (isset($_POST['sub']) && isset($_POST['pass']) && isset($_POST['mail'])) {
   } else {
     ?>
     <script>
-      (function ($) {
-        $("small").toggleClass("d-none")
-      }) (jQuery)
+        (function ($) {
+          $("small").toggleClass("d-none")
+        })(jQuery)
     </script>
     <?php
   }
