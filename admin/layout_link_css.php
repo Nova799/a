@@ -75,18 +75,26 @@
 </style>
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-bs4.min.css">
 <style>
-  #overview > div:nth-child(2) > div > div > div > form > div > div:nth-child(3) > div > div.note-toolbar.card-header > div.note-btn-group.btn-group.note-color > div > button.note-btn.btn.btn-light.btn-sm.note-current-color-button, 
-  #overview > div:nth-child(2) > div > div > div > form > div > div:nth-child(3) > div > div.note-toolbar.card-header > div.note-btn-group.btn-group.note-font > button.note-btn.btn.btn-light.btn-sm.note-btn-bold, 
-  #overview > div:nth-child(2) > div > div > div > form > div > div:nth-child(3) > div > div.note-toolbar.card-header > div.note-btn-group.btn-group.note-font > button.note-btn.btn.btn-light.btn-sm.note-btn-italic, 
-  #overview > div:nth-child(2) > div > div > div > form > div > div:nth-child(3) > div > div.note-toolbar.card-header > div.note-btn-group.btn-group.note-font > button.note-btn.btn.btn-light.btn-sm.note-btn-underline, 
-  #overview > div:nth-child(2) > div > div > div > form > div > div:nth-child(3) > div > div.note-toolbar.card-header > div.note-btn-group.btn-group.note-para > button:nth-child(1), 
-  #overview > div:nth-child(2) > div > div > div > form > div > div:nth-child(3) > div > div.note-toolbar.card-header > div.note-btn-group.btn-group.note-para > button:nth-child(2){
-  margin-right: 0px !important;
-}
+  #overview>div:nth-child(2)>div>div>div>form>div>div:nth-child(3)>div>div.note-toolbar.card-header>div.note-btn-group.btn-group.note-color>div>button.note-btn.btn.btn-light.btn-sm.note-current-color-button,
+  #overview>div:nth-child(2)>div>div>div>form>div>div:nth-child(3)>div>div.note-toolbar.card-header>div.note-btn-group.btn-group.note-font>button.note-btn.btn.btn-light.btn-sm.note-btn-bold,
+  #overview>div:nth-child(2)>div>div>div>form>div>div:nth-child(3)>div>div.note-toolbar.card-header>div.note-btn-group.btn-group.note-font>button.note-btn.btn.btn-light.btn-sm.note-btn-italic,
+  #overview>div:nth-child(2)>div>div>div>form>div>div:nth-child(3)>div>div.note-toolbar.card-header>div.note-btn-group.btn-group.note-font>button.note-btn.btn.btn-light.btn-sm.note-btn-underline,
+  #overview>div:nth-child(2)>div>div>div>form>div>div:nth-child(3)>div>div.note-toolbar.card-header>div.note-btn-group.btn-group.note-para>button:nth-child(1),
+  #overview>div:nth-child(2)>div>div>div>form>div>div:nth-child(3)>div>div.note-toolbar.card-header>div.note-btn-group.btn-group.note-para>button:nth-child(2) {
+    margin-right: 0px !important;
+  }
 
-.note-btn:active, .note-btn.active {
-            border: 1px solid !important;
-            background: #050505 !important;
-            color: #f5f5f5 !important;
-        }
+  .note-btn:active,
+  .note-btn.active {
+    border: 1px solid !important;
+    background: #050505 !important;
+    color: #f5f5f5 !important;
+  }
+
+  @media (max-width: 1199px) {
+    *{
+      display: none !important;
+    }
+  }
+
 </style>

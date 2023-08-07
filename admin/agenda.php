@@ -178,25 +178,7 @@ if (!isset($_SESSION["user"])) {
                         todayHighlight: true,
                         firstDayOfWeek: 1,
                         sidebarDisplayDefault: false,
-                        eventHeaderFormat: "d MM yyyy",
-                        calendarEvents: [
-                            {
-                                id: 'bHay68s', // Event's ID (required)
-                                name: "New Year", // Event name (required)
-                                date: "January/1/2020", // Event date (required)
-                                type: "holiday", // Event type (required)
-                                everyYear: true // Same event every year (optional)
-                            },
-                            {
-                                id: "sdffsfzeffz",
-                                name: "Vacation Leave",
-                                badge: "02/13 - 02/15", // Event badge (optional)
-                                date: ["02/13/2024", "02/15/2024"], // Date range
-                                description: "Vacation leave for 3 days.", // Event description (optional)
-                                type: "event",
-                                color: "#63d867" // Event custom color (optional)
-                            }
-                        ]
+                        eventHeaderFormat: "d MM yyyy"
                     })
                 var cal = $("#calendar");
                 $("#calendar > div.calendar-inner").append("<center><button class='btn btn-secondary mt-5' id='btnAdd'>Ajouter un évenement</button></center>");
