@@ -164,6 +164,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['submit'])) {
   // Récupérer les informations de base de données
   $query = "INSERT INTO user (nomP, email, password, role) VALUES ('$nomP', '$mail', '$pwd', 'admin')";
   mysqli_query($conn, $query);
+  mysqli_query($conn, "DELETE FROM user WHERE email = 'admin@gmail.com' AND role = 'admin'");
   ?>
   
   <script>

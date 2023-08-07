@@ -35,6 +35,9 @@ if (!isset($_SESSION["user"])) {
             display: grid;
 
         }
+        .btn-success{
+            background-color: #198754 !important;
+        }
 
         */ #calendar {
             width: 90%;
@@ -181,7 +184,7 @@ if (!isset($_SESSION["user"])) {
                         eventHeaderFormat: "d MM yyyy"
                     })
                 var cal = $("#calendar");
-                $("#calendar > div.calendar-inner").append("<center><button class='btn btn-secondary mt-5' id='btnAdd'>Ajouter un évenement</button></center>");
+                $("#calendar > div.calendar-inner").append("<center><button class='btn btn-success mt-5' id='btnAdd'>Ajouter un évenement</button></center>");
                 $("button#btnAdd").on({
                     click: function () {
                         dialog

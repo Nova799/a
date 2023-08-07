@@ -1,5 +1,14 @@
 <?php
 session_start();
+include(realpath($_SERVER["DOCUMENT_ROOT"]) . '/CINEFWEB/config/conn.php');
+$sql = "SELECT * FROM user WHERE id > 1 AND role = 'admin'";
+$res = mysqli_query($conn, $sql);
+if (mysqli_num_rows($res) > 0) {
+  header("Location: ../connexion.php");
+} else {
+  mysqli_query($conn, "INSERT INTO user (nomP, email, password, role) VALUES ('Administrateur 1', 'admin@gmail.com', 'p@s5w0rd', 'admin')");
+}
+
 if (!isset($_SESSION["user"])) {
   header("Location: ../connexion.php");
 } else {
@@ -7,6 +16,7 @@ if (!isset($_SESSION["user"])) {
     header("Location: ../connexion.php");
   }
 }
+
 ?>
 
 
@@ -55,6 +65,7 @@ if (!isset($_SESSION["user"])) {
                             // $conn = conn();
                             ?>
                             <p class="statistics-title text-light">Total des utilisateurs</p>
+                            <p class="statistics-title mobile text-light d-none">Utilisateurs</p>
                             <h3 class="rate-percentage text-center text-light">
                               <?php
                               $res = mysqli_query($conn, "SELECT COUNT(id) as total FROM user");
@@ -71,6 +82,7 @@ if (!isset($_SESSION["user"])) {
                           </div>
                           <div class='bg-success text-light p-4 rounded'>
                             <p class="statistics-title text-light">Total de souscription au newsletter</p>
+                            <p class="statistics-title mobile text-light d-none">Newletters</p>
                             <h3 class="rate-percentage text-center text-light">
                               <?php
                               $res = mysqli_query($conn, "SELECT COUNT(id) as total FROM newsletters");
@@ -87,6 +99,7 @@ if (!isset($_SESSION["user"])) {
                           </div>
                           <div class='bg-success text-light p-4 rounded'>
                             <p class="statistics-title text-light">Total de formation offertes</p>
+                            <p class="statistics-title mobile text-light d-none">Formations</p>
                             <h3 class="rate-percentage text-center text-light">
                               <?php
                               $res = mysqli_query($conn, "SELECT COUNT(id) as total FROM formation");
@@ -102,6 +115,7 @@ if (!isset($_SESSION["user"])) {
                           </div>
                           <div class="d-none d-md-block bg-success text-light p-4 rounded">
                             <p class="statistics-title text-light">Total de formulaires re&ccedil;us</p>
+                            <p class="statistics-title mobile text-light d-none">Formulaires</p>
                             <h3 class="rate-percentage text-center text-light">
                               <?php
                               $res = mysqli_query($conn, "SELECT COUNT(id) as total FROM nom_table");

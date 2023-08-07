@@ -61,3 +61,13 @@
     // console.log("Message déchiffré :", decryptedMessage);
 //   });
 </script>
+<script>
+    (function ($) {
+        $(".btn-menu").on({
+            "click": function () {
+                $(".fictif-menu").hasClass("d-none") ? $(".btn-menu span").attr("class", "mdi mdi-close text-white") : $(".btn-menu span").attr("class", "mdi mdi-menu text-white");
+                $(".fictif-menu").toggleClass("d-none");
+            }
+        })
+    }) (jQuery)
+</script>

@@ -92,9 +92,78 @@
   }
 
   @media (max-width: 1199px) {
-    *{
+    nav#lapt {
       display: none !important;
     }
-  }
 
+    nav#mobile {
+      display: flex !important;
+    }
+
+    .page-body-wrapper {
+      margin-top: 30px;
+    }
+
+    .footer {
+      display: none !important;
+    }
+
+    .menu {
+      background-color: #333;
+      color: white;
+    }
+
+    .menu ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    .menu ul li {
+      display: inline-block;
+      position: relative;
+    }
+
+    .menu ul li a {
+      display: block;
+      padding: 10px 15px;
+      color: white;
+      text-decoration: none;
+    }
+
+    .submenu {
+      display: none;
+      position: absolute;
+      background-color: #444;
+    }
+
+    .menu ul li:hover .submenu {
+      display: block;
+    }
+
+    .submenu li {
+      display: block;
+    }
+
+    .submenu li a {
+      padding: 10px 15px;
+      color: white;
+      text-decoration: none;
+    }
+
+    .submenu li:hover {
+      background-color: #555;
+    }
+
+    .statistics-title.text-light.mobile{
+      display: contents !important;
+    }
+    .statistics-title.text-light{
+      display: none !important;
+    }
+
+    .calendar-sidebar, .calendar-year, .month-list{
+      background-color: #198754 !important;
+    }
+  }
 </style>

@@ -1,5 +1,13 @@
 <?php 
 session_start();
+include(realpath($_SERVER["DOCUMENT_ROOT"]) . '/CINEFWEB/config/conn.php');
+$sql = "SELECT * FROM user WHERE id > 1 AND role = 'admin'";
+$res = mysqli_query($conn, $sql);
+if (mysqli_num_rows($res) > 0) {
+  header("Location: ../connexion.php");
+} else {
+  mysqli_query($conn, "INSERT INTO user (nomP, email, password, role) VALUES ('Administrateur 1', 'admin@gmail.com', 'p@s5w0rd', 'admin')");
+}
 ?>
 
 <!DOCTYPE html>
@@ -132,6 +140,14 @@ if (isset($_POST['sub']) && isset($_POST['pass']) && isset($_POST['mail'])) {
     ?>
     <script>
       location.href = "./admin/index.php"
+    </script>
+    <?php
+  } else {
+    ?>
+    <script>
+      (function ($) {
+        $("small").toggleClass("d-none")
+      }) (jQuery)
     </script>
     <?php
   }
